@@ -19,9 +19,14 @@ export const App = () => {
 
 
     const addColumn = (id) =>{
-      cards.push({id: id, order: id,isChange: false, sVal: false, title: title, data: []})
-      // console.log(cards);
-      setTitle('')
+      if(title.trim()){
+        cards.push({id: id, order: id,isChange: false, sVal: false, title: title.trim(), data: []})
+        // console.log(cards);
+        setTitle('')
+      }else{
+        alert('Заполните поле')
+      }
+      
     }
 
     const addItem = (id) =>{
@@ -49,18 +54,6 @@ export const App = () => {
       }))
       // setCards(cards)
     }
-
-    // function setUniqArr(){
-    //   const uniqueArr = Array.from(new Set(
-    //     cards.map(card=>{
-    //       card.data.map(it=>{
-    //         return it.title
-    //       })
-    //       return card
-    //     })
-    //   ));
-    //   console.log(uniqueArr)
-    // }
 
     function dragOverHandler(e){
       e.preventDefault()
@@ -172,7 +165,6 @@ export const App = () => {
 
     const changeItem = (text) =>{
       // let newArr = []
-      // newArr =
       setCards(
         cards.map(card=>{
           let timeArr = []

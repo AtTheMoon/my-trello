@@ -46,7 +46,7 @@ export const App = () => {
       setItemTitle('')
       // console.log(cards);
       setCards(cards.map(card=>{
-        if(card.id == id){
+        if(card.id === id){
           // console.log('hi');
           return {...card, isVal: false}
         }
@@ -86,7 +86,7 @@ export const App = () => {
     
 
     function dropCardBlockHandler(e, card){
-      if(currentCard == card){
+      if(currentCard === card){
         return
       }
       card.data.push(currentItem)
@@ -126,11 +126,7 @@ export const App = () => {
     }
 
     const deleteCard = (id) =>{
-      setCards(cards.filter(el =>{
-        if(el.id !== id){
-          return el
-        }
-      }))
+      setCards(cards.filter(el => el.id !== id))
     }
 
     const deleteItem = (text) =>{
@@ -141,7 +137,7 @@ export const App = () => {
 
     const changeCard=(id)=>{
       setCards(cards.map(card=>{
-        if(card.id == id){
+        if(card.id === id){
           // console.log('hi');
           return {...card, isChange: true}
         }
@@ -151,9 +147,9 @@ export const App = () => {
 
     const getChangedCard=(e, id, text)=>{
       // console.log(e.key);
-      if(e.key == 'Enter'){
+      if(e.key === 'Enter'){
         setCards(cards.map(card=>{
-          if(card.id == id){
+          if(card.id === id){
             // console.log('hi');
             return {...card, title: text, isChange: false}
           }
@@ -170,7 +166,7 @@ export const App = () => {
           let timeArr = []
           timeArr =
           card.data.map(item=>{
-            if(item.title == text){
+            if(item.title === text){
               // console.log({...item, isChanged: true});
               return {...item, isChanged: true}
             }
@@ -184,14 +180,14 @@ export const App = () => {
 
     const getChangedItem=(e, text, desc)=>{
       // console.log(e.key);
-      if(e.key == 'Enter'){
+      if(e.key === 'Enter'){
         // let newArr = []
         // newArr =
           setCards(cards.map(card=>{
             let timeArr = []
             timeArr =
             card.data.map(item=>{
-              if(item.title == text){
+              if(item.title === text){
                 // console.log({...item, isChanged: false});
                 return {...item, title: desc, isChanged: false}
               }
@@ -206,7 +202,7 @@ export const App = () => {
 
     const resetInp = (id) =>{
       setCards(cards.map(card=>{
-        if(card.id == id){
+        if(card.id === id){
           // console.log('hi');
           return {...card, isVal: true}
         }
